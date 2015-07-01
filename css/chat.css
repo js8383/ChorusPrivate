@@ -1,0 +1,556 @@
+body, html{
+	/*font-face*/
+    font-family: tahoma, arial, sans serif;
+    margin: 0;
+    padding: 0;
+}
+
+#sidebar {
+    width: 250px;
+    margin-right: 20px;
+    float: left;
+}
+
+#container {
+    width: 450px;
+    margin-right: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    float: left;
+}
+
+#instructions {
+	height: 480px;
+	width: 350px;
+	float: left;
+	margin-top: 20px;
+	
+	padding-left: 10px;
+	padding-right: 10px;
+    text-align: justify;
+    
+    border: 1px solid #000;
+    -moz-box-shadow: 3px 3px 4px #000;
+    -webkit-box-shadow: 3px 3px 4px #000;
+    box-shadow: 3px 3px 4px #000;
+    /* For IE 8 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')";
+    /* For IE 5.5 - 7 */
+    filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');
+}
+
+#header {
+  width: 350px;
+  margin: auto;
+}
+
+#outer-container {
+  width: 800px;
+  text-align: center;
+  margin: auto;
+}
+
+#chat-container {
+    border: 1px solid #000;
+    -moz-box-shadow: 3px 3px 4px #000;
+    -webkit-box-shadow: 3px 3px 4px #000;
+    box-shadow: 3px 3px 4px #000;
+    /* For IE 8 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')";
+    /* For IE 5.5 - 7 */
+    filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');
+}
+
+.inplay, .expired {
+ /* background-color: #FFCCCC;
+  margin-left: 40px;
+  margin-right: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-left: 1px solid #AAA;*/
+  border: 3px outset #FF9999 !important;
+  background-color:#FF9999;
+  cursor: pointer;
+}
+
+.expired{
+	cursor: default;
+}
+
+.inplay.voted:hover {
+  border: 3px outset #FF9999 !important;
+  background-color:#FF9999;
+  cursor: pointer; 
+}
+
+.inplay:hover {
+  /*background-color: #FF9999;*/
+  border: 3px inset #EE6363 !important;
+  background-color: #EE6363;
+}
+
+.important-button {
+  font-size: 0.6em;
+  display: block;
+  margin-left: 10px;
+}
+
+.plus-minus-buttons {
+  float: right;
+}
+
+.inplay .important-button {
+  display: none;
+}
+
+/*
+.expired{
+	background-color: #F6DDDD;
+	color: #BBA9A9;
+}
+*/
+
+.voted {
+  /*background-color: white;*/
+  margin-left: 40px;
+  margin-right: 10px;
+ /* border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-left: 1px solid #AAA; */
+  border: 3px inset #EE6363 !important;
+  background-color: #EE6363;
+  cursor: default;  
+}
+
+.voted.confirmed {
+	background-color: white !important;
+	border: none !important;
+	cursor: default;
+}
+
+.voted.confirmed.HL, .confirmed.HL{
+	background-color:yellow !important;
+}
+
+.username {
+  display: none;
+}
+
+.role {
+  font-weight: bold;
+  float: left;
+}
+
+.time {
+  font-size: 0.5em;
+  color: #838B8B;
+  display: none;
+  clear: both;
+  float: right;
+  margin-top: 5px;
+}
+
+li.messages {
+  margin-top: 1px;
+  padding: 5px;
+  padding-left: 14px; 
+  border-bottom: 1px solid #DDD;
+  min-height: 1em;
+}
+
+li.messages.confirmed{
+	padding-bottom: 15px;
+}
+
+#typing{
+	width: 390px;
+	font-size: 10pt;
+	color: black;
+	padding-left: 2px;
+	text-align: left;
+}
+
+ul#chat-area {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+    height: 316px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    border: 1px solid #888;
+    text-align: left;
+}
+
+#points {
+    border: 1px solid #000;
+    position: absolute;
+    width: 10em;
+    text-align: middle;
+    right: 0;
+    top: 0;
+    display: none;
+}
+
+#participation {
+clear: both;
+padding-top: 5px 0 5px;
+font-size: 14pt;
+border: 1px solid black;
+
+}
+
+#votes-allowed {
+	margin-right: 15px;
+}
+
+#tbox-alert, #chat-alert{
+	color: red;
+}
+
+.crowd .role {
+  color: #D22;
+}
+
+.requester .role {
+  color: #22D;
+}
+
+.requester {
+  background-color: #EEE;
+}
+
+.crowd {
+  margin-left: 1em;
+}
+
+#txt{
+	float: left;
+	width: 360px;
+}
+
+/*.defaultText { width: 300px; }*/
+.defaultTextActive { color: #a1a1a1; font-style: italic; }
+
+.chat-box, #mike {
+    width: 310px;
+    margin: 0px;
+    font-size: 1em;
+}
+
+#chat-highlights {
+  width: 250px;
+  text-align: center;
+  padding: 3px;
+  margin: 0;
+  overflow: hidden;
+}
+
+#chat-highlights ul {
+  margin: 0 0 1px 0;
+  /*min-height: 250px;*/
+  height: 250px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding-left: 0;
+  text-align: left;
+}
+
+#chat-highlights h2 {
+  margin: 1em 1em 0 1em;
+}
+
+#memoryType {
+  width: 240px;
+  height: 4em;
+  padding: 0;
+  margin: 0;
+  font-size: 1em;
+}
+
+#chat-highlights ul li {
+  padding: 5px 5px 5px 5px;
+  min-height: 2em;
+  list-style-type: none;
+  background-color: #FFFFEE;
+  display: block;
+}
+
+#chat-highlights ul li:hover{
+  /*background-color: #FFCCCC !important;
+  text-shadow: 2px 2px #D3A6A6;*/
+  font-weight: 700;
+  /*color: #FFA347;*/
+}
+
+#chat-highlights ul li i:hover{
+  /*background-color: #FFCCCC !important;
+  text-shadow: 2px 2px #D3A6A6;
+  font-weight: 700;*/
+  color: #FFA347;
+}
+  
+
+.odd-chat-highlight {
+  background-color: #EEEEFF !important;
+  
+  /*background: #EEEEFF !important;*/
+  /*display: block;*/
+}
+
+.container {
+  border: 2px solid #000;
+
+  -moz-box-shadow: 3px 3px 4px #000;
+  -webkit-box-shadow: 3px 3px 4px #000;
+  box-shadow: 3px 3px 4px #000;
+  /* For IE 8 */
+  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')";
+  /* For IE 5.5 - 7 */
+  filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');
+}
+
+
+/*
+.odd-chat-highlight:hover, #chat-highlights ul li:hover{
+	cursor: pointer;
+}
+*/
+
+#highlight-instructions {
+  font-size: 14px;
+  color: #a1a1a1;
+}
+
+#chat-accepted {
+    font-size: 2em;
+    width: 15em;
+    text-align: center;
+    padding: 4px;
+    background-color: #F00;
+    color: #FFF;
+    margin: auto;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+#chat-accepted-container {
+    position: absolute;
+    top: 5px;
+    display: none;
+    width: 100%;
+}
+
+.chat-done {
+    width: 100%;
+    height: 1000px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 9999;
+    background-color: #000;
+}
+
+#legion-submit-instructions {
+    display: none;
+    color: #FFF;
+}
+
+.submit-button{
+	margin:0;
+	-moz-box-shadow:inset 0px 1px 0px 0px #caefab;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #caefab;
+	box-shadow:inset 0px 1px 0px 0px #caefab;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #268A16), color-stop(1, #5cb811) );
+	background:-moz-linear-gradient( center top, #268A16 5%, #5cb811 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#268A16', endColorstr='#5cb811');
+	background-color:#268A16;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #268a16;
+	display:inline-block;
+	color:#FFFFFF;
+	font-family:arial;
+	font-size:16px;
+	font-weight:bold;
+	/*padding: 20px 13px 20px 13px;*/
+	width: 80px;
+	padding: 17px 3px 17px 3px;
+	text-decoration:none;
+}
+.submit-button:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #5cb811), color-stop(1, #77d42a) );
+	background:-moz-linear-gradient( center top, #5cb811 5%, #77d42a 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#5cb811', endColorstr='#77d42a');
+	background-color:#5cb811;
+	cursor: pointer;
+}
+.submit-button:active {
+	position:relative;
+	top:1px;
+}
+
+.submit-button-disabled{
+	margin-top: 2px;
+	-moz-box-shadow:inset 0px 1px 0px 0px #A9A9A9;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #A9A9A9;
+	box-shadow:inset 0px 1px 0px 0px #A9A9A9;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #A9A9A9), color-stop(1, #A9A9A9) );
+	background:-moz-linear-gradient( center top, #A9A9A9 5%, #A9A9A9 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#A9A9A9', endColorstr='#A9A9A9');
+	background-color:#A9A9A9;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #A9A9A9;
+	display:inline-block;
+	color:#FFFFFF;
+	font-family:arial;
+	font-size:17px;
+	font-weight:bold;
+	text-decoration:none;
+	width: 80px;
+	padding: 17px 3px 17px 3px;
+}
+
+
+.time_wrapper_requester{
+       position:relative;
+       bottom:9px;
+       left:-350px;
+       padding-right: 5px;
+}
+.time_wrapper_crowd{
+       position:relative
+       ;
+       bottom:9px;
+       left:-335px;
+       padding-right: 5px;
+}
+
+li.messages{
+	position: relative;
+}
+
+.visible, .invisible{
+	position:absolute;
+    bottom:0;
+    right:0;
+    font-size: 8pt;
+    padding: 3px 3px 3px 3px; 
+    display: block;
+	/*
+	width: 200px;
+	height: 100px;
+	border: 1px solid green;
+	*/
+	/*
+	float: right;
+	font-size: 8pt;
+	margin-left: 3px;
+	margin-bottom: 5px;
+	padding-bottom: 5px;
+	*/
+	/*display: table-cell	;*/
+	/*
+	-moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    */
+}
+.invisible{
+	color: grey;
+	margin-bottom: 5px;
+}
+.visible{
+	color: rgba(0, 0, 0, 0.73);
+	/*margin-top: 10px;*/
+}
+	
+
+.message{
+	/* REDACT
+	float: left;
+	*/
+	width: 275px !important;
+}
+.exit_button{
+	background-color:#DEDEDE;
+	color:#8A8A8A;
+	width: 18px;
+	height: 12px;
+	padding-bottom: 6px;
+	clear:right;
+	float: right;
+	font-weight: bold;
+	text-align:center;
+	font-family:"verdana", Geneva, sans-serif;
+	font-size: 12px;
+	cursor: pointer;
+}
+.exit_button:hover{
+	background-color:#8A8A8A;
+	color: #DEDEDE;
+}
+
+
+
+.chat-box.req{
+	width: 100%;
+}
+
+
+
+
+
+
+.icons{
+	margin-top: 5px;
+	padding-right: 15px;
+	width: 25px;
+	height: auto;
+}
+
+#newMessages{
+	display: none;
+	font-weight: bold;
+	color: red;
+}
+#newMessages:hover{
+cursor: pointer;
+}
+
+.memoryStar{
+	font-size: 20px;
+	padding: 3px 3px 3px 3px;
+	color: #B2B2CC;
+	cursor: pointer;
+}
+.memoryStar:hover{
+	/*color: #FFCC66;*/
+}
+/*
+.memoryImportant{
+	color: #FFA347;
+}
+*/
+.memory{
+	cursor: pointer;
+}
+
+.memory:hover{
+	/*font-weight: 700;*/
+	/*text-shadow: 2px 2px #D0D0D0;*/
+	/*color: #FFCC66;*/
+}
+/*.memory:hover div i{
+	color: #FFCC66;
+}*/
+
+.votedMemory{
+	font-weight: 700;
+	cursor: default;
+}
+.votedMemory div i{
+	color: #FFA347;
+}

@@ -1,0 +1,52 @@
+body, html{
+	font-family: Geneva,Tahoma,Verdana,sans-serif;
+}
+
+.messages  {
+  font-size: 24px;
+  box-shadow: 5px 5px 3px #C8C8C8 	;
+}
+
+.site-wrap{
+	background-color: #8CCAE2;
+}
+
+.crowd{
+	background-color: #A9F6BA;
+	color: black;
+	font-weight: 500;
+	/*border: 1px solid #7ADA57;*/
+}
+
+.crowd:before{
+	border-right: 26px solid #A9F6BA;
+	/*border: 1px solid #7ADA57;*/
+}
+
+.requester{
+	background-color: #FFB7AF;
+	color: black;
+	font-weight: 500;
+	/*border: 1px solid #7ADA57;*/
+}
+
+.requester:before{
+	border-left: 26px solid #FFB7AF;
+	/*border: 1px solid #7ADA57;*/
+}
+
+.avatar-r{
+	background-color: #B21100 !important;
+	background: #B21100  !important;
+}
+
+.avatar-c{
+	background-color: #00861E  !important;
+	background: #00861E  !important;
+}
+
+.submit-button{
+	font-size: 24px;
+	font-weight: 500;
+}
+
