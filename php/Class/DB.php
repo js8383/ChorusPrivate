@@ -358,7 +358,30 @@ class DB{
 		}
 		
 	}
+
+	// New function
+
+	public function getLeastParticipatedTask($table, $timeFieldName, $timeWindowInSec){ 
+
+
+		$timeMysql = date('Y-m-d H:i:s', time()-$timeWindowInSec);
+
+		$sql = "SELECT task, COUNT(task) AS numWorkers FROM $table WHERE $timeFieldName >= '$timeMysql' 
+		        GROUP BY task ORDER BY numWorkers LIMIT 1";		
+			
+		$sth = $this->dbh->query($sql);
+		$row = $sth->fetch(PDO::FETCH_ASSOC, PDO::FETCH_ORI_NEXT);
+
+		if($row) {
+			return $row['task'];
+		}else{
+			return -1;
+		}
+
+	}
 	
+	//
+
 	public function getRowsTimeout($table, $propArray, $timeFieldName, $timeWindowInSec){
 	
 	

@@ -32,12 +32,23 @@ class MTurk{
 			"turkSubmitTo" => $turkSubmitTo,
 			"task" => $task
 		);
+
+
+		$propArray2 = array(
+			"task" => $task
+		);
 		
 		$this->dbh = new DB();
 		if($row = $this->dbh->getFirstRow("mturk", $propArray)){
 			$this->id = $row['id'];
 		}else{
 			$this->id = $this->dbh->index("mturk", $propArray);
+		}
+
+		if($row = $this->dbh->getFirstRow("requesterLog", $propArray2)){
+			$this->id = $row['id'];
+		}else{
+			$this->id = $this->dbh->index("requesterLog", $propArray2);
 		}
 		
 	}
@@ -54,9 +65,26 @@ class MTurk{
 		
 		//public function getCountTimeout($table, $propArray, $timeFieldName, $timeWindowInSec){
 		return ($this->dbh->getCountTimeout("mturk", $propArray, "updateTime", $workerTimeoutInSec));
+
 		
 	}
-	
+
+	public function distributeTask($workerTimeoutInSec){ 
+		return ($this->dbh->getLeastParticipatedTask("mturk", "updateTime", $workerTimeoutInSec));
+	}
+
+	public function logRequester() {
+		$propArray = array(
+				"hitId" => $this->hitId,
+				"assignmentId" => $this->assignmentId,
+				"workerId" => $this->workerId,
+				"turkSubmitTo" => $this->turkSubmitTo,
+				"task" => $this->task
+		);
+		$timestamp =  date('Y-m-d H:i:s', time());
+		$this->dbh->updateFields("mturk", "updateTime", $timestamp, $propArray);
+	}
+
 	//sync score at the same time
 	//save check for odd increace, trust database more
 	public function logWorker($score){

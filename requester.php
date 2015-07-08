@@ -4,6 +4,11 @@ if(!isset($_SESSION['user']))
 {
     header("Location: index.php");
 }
+
+// if($_GET['task'] != '') {
+//     header("Location: home.php");
+// }
+
 ?>
 
 <!DOCTYPE html>
@@ -26,6 +31,8 @@ if(!isset($_SESSION['user']))
 	<!-- PHP Javascript Print -->
 	<script type="text/javascript">
 		var sessionId = "<?php echo session_id(); ?>";
+        var taskId = "<?php echo $_SESSION['user']; ?>";
+        var workerId = 0;
 	</script>
     
     <!-- variables config -->
@@ -209,6 +216,11 @@ var role = gup('role') ? gup('role') : '';
             		<input type="radio" name="newChat" value="scroll" checked="checked">Always Scroll to the Bottom<br>
 					<input type="radio" name="newChat" value="notice">Notice Message<br>
             	</div>
+
+                <!-- add home button -->
+                <div id='newMessageNoticeConf'>
+                    <a class="Home" href="home.php">Home</a>
+                </div>
                 
             </div>
             

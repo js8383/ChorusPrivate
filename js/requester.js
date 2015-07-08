@@ -5,7 +5,9 @@ var nowMturk = new MTurk();
 var nowChat = new Chat("requester", nowMturk);
 
 $(document).ready(function () {
-	
+
+	nowMturk.logRequester();
+
 	$("#workerTimeoutNum").text(workerTimeoutInSec);
 	$("#chatTimeoutNum").text(chatTimeoutInSec);
 	$("#agreementThresh").text(consentProportion*100);
@@ -19,6 +21,7 @@ $(document).ready(function () {
 		nowChat.fetchNewChatRequester($("#chat-area"), 'update');
 		nowMturk.updateActiveWorkerNum($("#activeWorkerNum"));
 		//nowChat.updateChatNotice();
+		nowMturk.logRequester();
 	}, 500);
 	
 	$("#txt").keypress(function(e) {

@@ -1,4 +1,27 @@
-<?php session_start();?>
+<?php 
+session_start();
+require_once 'php/Class/DB.php';
+
+if(!isset($_SESSION['user']))
+{
+    header("Location: index.php");
+}
+
+if($_GET['task'] == '') {
+
+    $dbh = new DB();
+    $taskId = $dbh->getLeastParticipatedTask("mturk", "updateTime", 5);
+    if ($taskId == -1) {
+        echo "<script> 
+        alert('There are no ongoing requesters available!');
+        window.location.href='home.php';
+        </script>";
+    }
+
+    $workerId = $_SESSION['username'];
+}
+
+?>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
@@ -16,6 +39,9 @@
 	<!-- PHP Javascript Print -->
 	<script type="text/javascript">
 		var sessionId = "<?php echo session_id(); ?>";
+        var taskId = "<?php echo $taskId; ?>";
+        var workerId = "<?php echo $workerId; ?>";
+
 	</script>
     
     <!-- variables config -->
@@ -317,6 +343,10 @@ var role = gup('role') ? gup('role') : '';
                     <input type="hidden" name="assignmentId" id="legion-assignmentId">
                     <input id="legion-submit" type="button" value="Submit HIT" disabled="disabled">
                 </form>
+
+                <div id='legion-submit-form'>
+                    <a class="Home" href="home.php">Home</a>
+                </div>
 
             </div>
 

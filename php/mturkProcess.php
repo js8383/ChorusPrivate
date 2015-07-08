@@ -32,13 +32,19 @@ if(isset($_REQUEST['task'])&&isset($_REQUEST['hitId'])&&isset($_REQUEST['assignm
 		
 		case "updateActiveWorkerNum":
 			$workerTimeoutInSec = $_REQUEST['workerTimeoutInSec'];
-			echo($nowMTurk->getActiveWorkerNum($workerTimeoutInSec));
+			echo($nowMTurk->getActiveWorkerNum($workerTimeoutInSec) - 1);
+		break;
+
+		// Add a case to update the requester
+		case "logRequester":
+		    $nowMTurk->logRequester();
 		break;
 		
 	}
 	
 }else{
 	echo("hitId/assignmentId/workerId/turkSubmitTo/task is not set!");
+
 }
 
 

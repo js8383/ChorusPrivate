@@ -4,6 +4,9 @@ error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
 require_once 'Class/Chat.php';
+// require_once '../home.php';
+
+// echo($_SESSION['user']);
 
 if(isset($_REQUEST['action'])&&isset($_REQUEST['role'])&&isset($_REQUEST['task'])&&isset($_REQUEST['workerId'])){
 	

@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 include_once 'dbconnect.php';
 
 if(!isset($_SESSION['user']))
@@ -9,6 +10,7 @@ if(!isset($_SESSION['user']))
 $res=mysql_query("SELECT * FROM users WHERE user_id=".$_SESSION['user']);
 $userRow=mysql_fetch_array($res);
 ?>
+
 <!DOCTYPE html >
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -30,12 +32,12 @@ $userRow=mysql_fetch_array($res);
 
 <body>
 
-    <h1>Welcome - <?php echo $userRow['email']; ?></h1>        
+    <h1>Welcome- <?php echo $userRow['email']; ?></h1>        
 
     <ul class="form">
-        <li><a class="ask" href="../requester.php?task=3"><i class="icon-question"></i>Ask Question</a></li>
-        <li><a class="answer" href="#"><i class="icon-user"></i>Answer Question <!-- <em>5</em> --></a></li>
-        <li><a class="settings" href="#"><i class="icon-cog"></i>App Settings</a></li>
+        <li><a class="ask" href="requester.php"><i class="icon-question"></i>Ask Question</a></li>
+        <li><a class="answer" href="chat.php"><i class="icon-user"></i>Answer Question <!-- <em>5</em> --></a></li>
+        <li><a class="settings" href="#"><i class="icon-cog"></i>Settings</a></li>
         <li><a class="logout" href="logout.php?logout"><i class="icon-signout"></i>Logout</a></li>
     </ul>
 

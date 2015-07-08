@@ -2,12 +2,12 @@ function MTurk() {
 	
   this.hitId = gup('hitId');
   this.assignmentId = gup('assignmentId');
-  this.workerId = gup('workerId') ? gup('workerId') : sessionId;
+  this.workerId = gup('workerId') ? gup('workerId') : workerId;
   this.turkSubmitTo = gup('turkSubmitTo');
   //alert(this.workerId);
   
-  this.task = gup('task');
-  
+  this.task = gup('task') ? gup('task') : taskId;
+  // this.task = sessionId;
 }
 
 MTurk.prototype.updateActiveWorkerNum = function(spanActiveWorkerNum){
@@ -31,6 +31,26 @@ MTurk.prototype.updateActiveWorkerNum = function(spanActiveWorkerNum){
 	      }
 		});
 	
+}
+
+// New Function
+MTurk.prototype.logRequester = function() {
+
+	$.ajax({
+	      url: "php/mturkProcess.php",
+	      type: "POST",
+	      data: {
+	      	  action: "logRequester",
+	      	  hitId: this.hitId,
+	      	  assignmentId: "requester",
+	      	  workerId: this.workerId,
+	      	  turkSubmitTo: this.turkSubmitTo,
+	      	  task: this.task,
+	      },
+	      success: function (d) { 
+	      	// alert(d);
+	      }
+	  });
 }
 
 MTurk.prototype.log = function(){
